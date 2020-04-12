@@ -1,5 +1,10 @@
 {
-  "extends": ["standard", "prettier", "prettier/standard"],
+  "extends": [
+    "eslint:  recommended",
+    "standard",
+    "prettier",
+    "prettier/standard"
+  ],
   "rules": {
     "promise/catch-or-return": "error",
     "prettier/prettier": [
