@@ -53,7 +53,7 @@ adminSchema.methods.generateAuthToken = async function () {
 // compare password with bcrypt and we would use this in the signin authe
 adminSchema.statics.findByCredentials = async (email, password) => {
   // Search for a user by email and password.
-  const user = await User.findOne({ email });
+  const user = await Admin.findOne({ email });
   if (!user) {
     throw new Error({ error: "Invalid login credentials" });
   }
