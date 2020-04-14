@@ -27,7 +27,7 @@ const productListSchema = mongoose.Schema(
     createdBy: {
       type: mongoose.SchemaTypes.ObjectId,
       // so that mongo knows what model to look for this id
-      ref: "Admin",
+      ref: "admin",
       required: true,
     },
   },
