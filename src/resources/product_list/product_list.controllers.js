@@ -50,9 +50,9 @@ module.exports = {
   },
   // only admin creates products
   createProduct: async (req, res) => {
-    const createdBy = req.user._id;
+    // const createdBy = req.user._id;
     try {
-      const doc = await Product_List.create({ ...req.body, createdBy });
+      const doc = await Product_List.create(req.body);
       res.status(201).json({ data: doc });
     } catch (e) {
       console.error(e);
