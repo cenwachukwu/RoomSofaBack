@@ -64,7 +64,6 @@ module.exports = {
     try {
       const updatedDoc = await Product_List.findOneAndUpdate(
         {
-          createdBy: req.user._id,
           _id: req.params.id,
         },
         req.body,
