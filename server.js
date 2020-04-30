@@ -1,6 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 
+// we require the stripe package and next we will add a role key
+const stripe = require("stripe")("");
+
+const uuid = require("uuid/v4");
+
 const product_listRouter = require("./src/resources/product_list/product_list.route");
 
 require("dotenv").config();
