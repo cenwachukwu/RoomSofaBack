@@ -86,7 +86,6 @@ module.exports = {
   deleteProduct: async (req, res) => {
     try {
       await Product_List.findOneAndRemove({
-        createdBy: req.user._id,
         _id: req.params.id,
       });
 
