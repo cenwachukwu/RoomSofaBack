@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema(
   {
-    sku: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-
     name: {
       type: String,
       required: true,
