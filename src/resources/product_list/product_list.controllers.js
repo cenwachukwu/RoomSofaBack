@@ -50,9 +50,9 @@ module.exports = {
   },
   // only admin creates products
   createProduct: async (req, res) => {
-    // const createdBy = req.user._id;
+    const createdBy = req.user._id;
     try {
-      const doc = await Product_List.create(req.body);
+      const doc = await Product_List.create({ ...req.body, createdBy });
       res.status(201).json({ data: doc });
     } catch (e) {
       console.error(e);
@@ -64,6 +64,7 @@ module.exports = {
     try {
       const updatedDoc = await Product_List.findOneAndUpdate(
         {
+          createdBy: req.user._id,
           _id: req.params.id,
         },
         req.body,
@@ -86,6 +87,7 @@ module.exports = {
   deleteProduct: async (req, res) => {
     try {
       await Product_List.findOneAndRemove({
+        createdBy: req.user._id,
         _id: req.params.id,
       });
 

@@ -9,11 +9,12 @@ const cors = require("cors");
 // we put our secret key in an environment variable because we want to protect it from other developers and invaders
 const stripe = require("stripe")(process.env.Stripe_Secret_Key);
 // we also require uuid version4
-const uuid = require("uuid/v4");
+const uuid = require("uuid");
 
 // Routers
 const product_listRouter = require("./src/resources/product_list/product_list.route");
-const cartRouter = require("./src/resources/cart/cart.route");
+// const cartRouter = require("./src/resources/cart/cart.route");
+const userRouter = require("./src/resources/admin/admin.route");
 
 // we require our mongooose connection file
 require("./src/config/connection");
@@ -27,7 +28,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use(product_listRouter);
-app.use(cartRouter);
+// app.use(cartRouter);
+app.use(userRouter);
 
 // Server port:
 app.set("port", process.env.PORT || 8080);

@@ -4,11 +4,13 @@ const productController = require("./product_list.controllers");
 
 const router = express.Router();
 
+const auth = require("../../utils/admin_auth");
+
 // find multiple blogs = get
 router.get("/products", productController.allProducts);
 
 // create new blog = post
-router.post("/products", productController.createProduct);
+router.post("/products", auth, productController.createProduct);
 
 // find one blog by category = get
 router.get("/products/:category", productController.productsByCategory);
@@ -20,7 +22,7 @@ router
   .get(productController.oneProductById)
 
   // update blog= put
-  .put(productController.updateProduct)
+  .put(auth, productController.updateProduct)
 
   // delete blog = delete
   .delete(productController.deleteProduct);

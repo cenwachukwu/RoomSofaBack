@@ -4,7 +4,7 @@ const userController = require("./admin.controllers");
 
 const router = express.Router();
 
-const auth = require("../../utils/auth");
+const auth = require("../../utils/admin_auth");
 
 // create new user (signup) = post
 router.post("/admin/signup", userController.signup);
