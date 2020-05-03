@@ -25,6 +25,6 @@ router
   .put(auth, productController.updateProduct)
 
   // delete blog = delete
-  .delete(productController.deleteProduct);
+  .delete(auth, productController.deleteProduct);
 
 module.exports = router;
