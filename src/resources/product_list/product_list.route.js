@@ -15,11 +15,10 @@ router.post("/products", auth, productController.createProduct);
 // find one blog by category = get
 router.get("/products/:category", productController.productsByCategory);
 
+router.get("/products/:id", productController.oneProductById);
+
 router
   .route("/products/:id")
-
-  // find one blog = get
-  .get(productController.oneProductById)
 
   // update blog= put
   .put(auth, productController.updateProduct)
