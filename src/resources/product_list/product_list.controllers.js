@@ -19,15 +19,12 @@ module.exports = {
   // find one product
   oneProductById: async (req, res) => {
     try {
-      const doc = await Product_List.findOne({ _id: req.params.id })
-        .lean()
-        .exec();
-
+      const doc = await Product_List.findOne({ _id: req.params.id });
       if (!doc) {
         return res.status(404).send({ msg: "Product not found" });
       }
 
-      res.status(200).json({ data: doc });
+      res.status(200).send(doc);
     } catch (error) {
       console.error(error);
       res.status(400).end();
