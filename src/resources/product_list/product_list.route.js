@@ -2,6 +2,8 @@ const express = require("express");
 
 const productController = require("./product_list.controllers");
 
+const Product_List = require("./product_list.model");
+
 const router = express.Router();
 
 const auth = require("../../utils/admin_auth");
@@ -15,7 +17,14 @@ router.post("/products", auth, productController.createProduct);
 // find one blog by category = get
 router.get("/products/:category", productController.productsByCategory);
 
-router.get("/products/:id", productController.oneProductById);
+router.get("/:id", async (req, res) => {
+  const product = await Product.findOne({ _id: req.params.id });
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "Product Not Found." });
+  }
+});
 
 router
   .route("/products/:id")
