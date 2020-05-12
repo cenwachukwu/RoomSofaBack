@@ -17,17 +17,20 @@ router.post("/products", auth, productController.createProduct);
 // find one blog by category = get
 router.get("/products/:category", productController.productsByCategory);
 
-router.get("/:id", async (req, res) => {
-  const product = await Product.findOne({ _id: req.params.id });
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product Not Found." });
-  }
-});
+// // find one blog by category = get
+// router.get("/:id", async (req, res) => {
+//   const product = await Product_List.findOne({ _id: req.params.id });
+//   if (product) {
+//     res.send(product);
+//   } else {
+//     res.status(404).send({ message: "Product Not Found." });
+//   }
+// });
 
 router
   .route("/products/:id")
+
+  .get(productController.oneProductById)
 
   // update blog= put
   .put(auth, productController.updateProduct)

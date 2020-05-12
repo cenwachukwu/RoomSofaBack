@@ -18,11 +18,19 @@ module.exports = {
   },
   // find one product
   oneProductById: async (req, res) => {
-    const product = await Product_List.findOne({ _id: req.params.id });
-    if (product) {
-      res.send(product);
-    } else {
-      res.status(404).send({ message: "Product Not Found." });
+    try {
+      const doc = await Product_List.findOne({ _id: req.params.id })
+        .lean()
+        .exec();
+
+      if (!doc) {
+        return res.status(400).end();
+      } else {
+        res.status(200).json({ data: doc });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(400).end();
     }
   },
   // find products by category
