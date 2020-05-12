@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cenwachukwu/RoomSofaBack#readme",
   "dependencies": {
+    "authorizenet": "^1.0.7",
     "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
