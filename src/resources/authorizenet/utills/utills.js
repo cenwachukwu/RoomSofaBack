@@ -1,6 +1,8 @@
-export async function getAmount() {
-  return (Math.random() * 100 + 1).toFixed(2);
-}
-export async function getDate() {
-  return new Date().toISOString().substring(0, 10);
-}
+module.exports = {
+  getAmount: async () => {
+    return (Math.random() * 100 + 1).toFixed(2);
+  },
+  getDate: async () => {
+    return new Date().toISOString().substring(0, 10);
+  },
+};
