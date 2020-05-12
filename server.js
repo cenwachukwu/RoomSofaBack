@@ -15,6 +15,7 @@ const uuid = require("uuid");
 const product_listRouter = require("./src/resources/product_list/product_list.route");
 // const cartRouter = require("./src/resources/cart/cart.route");
 const userRouter = require("./src/resources/admin/admin.route");
+const payRouter = require("./src/resources/authorizenet/chargeCard/charge.route");
 
 // we require our mongooose connection file
 require("./src/config/connection");
@@ -28,7 +29,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(product_listRouter);
-// app.use(cartRouter);
+app.use(payRouter);
 app.use(userRouter);
 
 // Server port:

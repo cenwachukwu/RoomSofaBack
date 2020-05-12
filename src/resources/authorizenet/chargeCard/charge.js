@@ -1,6 +1,5 @@
-//  we use this method to authorize and capture a credit card payment.
-//  this method wont actually charge the card
-//  but will get the infomation we need from the card
+// create an Authorize.Net payment transaction request, using the Accept Payment nonce in place of card data.
+
 import {
   APIContracts,
   APIControllers,
