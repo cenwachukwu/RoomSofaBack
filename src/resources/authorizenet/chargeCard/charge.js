@@ -1,16 +1,12 @@
 // create an Authorize.Net payment transaction request, using the Accept Payment nonce in place of card data.
 
-import {
-  APIContracts,
-  APIControllers,
-  SDKConstants as _SDKConstants,
-} from "authorizenet";
+const authorizenet = require("authorizenet");
 
 const utills = require("../utills/utills");
 
-const ApiContracts = APIContracts;
-const ApiControllers = APIControllers;
-const SDKConstants = _SDKConstants;
+const ApiContracts = authorizenet.APIContracts;
+const ApiControllers = authorizenet.APIControllers;
+const SDKConstants = authorizenet._SDKConstants;
 
 const createAnAcceptPaymentTransaction = (callBack) => {
   // merchantAuthenticationType Contains merchant authentication information.
