@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const cartSchema = mongoose.Schema({});
+const userSchema = mongoose.Schema({});
 
-const Cart = mongoose.model("cart", cartSchema);
+const User = mongoose.model("user", userSchema);
 
 module.exports = Cart;
