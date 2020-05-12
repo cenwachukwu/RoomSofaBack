@@ -250,4 +250,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = chargeCreditCard;
+module.exports = createAnAcceptPaymentTransaction;
