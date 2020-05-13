@@ -16,6 +16,7 @@ const product_listRouter = require("./src/resources/product_list/product_list.ro
 // const cartRouter = require("./src/resources/cart/cart.route");
 const userRouter = require("./src/resources/admin/admin.route");
 const payRouter = require("./src/resources/authorizenet/chargeCard/charge.route");
+const getFormTokenRouter = require("./src/resources/authorizenet/getFormToken/getFormToken.route");
 
 // we require our mongooose connection file
 require("./src/config/connection");
@@ -31,6 +32,7 @@ app.use(cors());
 app.use(product_listRouter);
 app.use(payRouter);
 app.use(userRouter);
+app.use(getFormTokenRouter);
 
 // Server port:
 app.set("port", process.env.PORT || 8080);
