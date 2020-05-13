@@ -31,7 +31,7 @@ const getHostedPaymentPageRequest = (callBack) => {
   transactionRequestType.setTransactionType(
     ApiContracts.TransactionTypeEnum.AUTHCAPTURETRANSACTION
   );
-  transactionRequestType.setAmount(utils.getRandomAmount());
+  transactionRequestType.setAmount(utills.getAmount);
 
   //   You can present up to four payment options depending on which values you use in the hosted form parameters settings eg. creditcard
   //    they use the hostedPaymentPaymentOptions parameter
